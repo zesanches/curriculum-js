@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sorteador de Números</title>
+</head>
+
+<body>
+  <h1>Sorteador de Números</h1>
+  <p>Insira o intervalo de números que deseja sortear:</p>
+  <label for="min">Mínimo:</label>
+  <input type="number" id="min" name="min">
+  <label for="max">Máximo:</label>
+  <input type="number" id="max" name="max">
+  <br>
+  <button onclick="sort()">Sortear</button>
+  <p id="result"></p>
+
+  <script>
+    function sort() {
+      const min = parseInt(document.getElementById("min").value);
+      const max = parseInt(document.getElementById("max").value);
+
+      if (isNaN(min) || isNaN(max) || min >= max) {
+        return alert("Insira um intervalo válido!");
+      }
+
+      const result = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      document.getElementById("result").innerHTML = "O número sorteado foi: " + result;
+    }
+  </script>
+</body>
+
+</html>
